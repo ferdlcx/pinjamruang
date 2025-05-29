@@ -1,8 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.ppinjamruang;
+
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
+import java.awt.Font;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -10,11 +14,48 @@ package com.mycompany.ppinjamruang;
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
     public Login() {
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("TextComponent.arc", 10);
+            UIManager.put("Component.focusWidth", 1);
+            UIManager.put("Button.arc", 999);
+        } catch (UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace(); // Bisa juga log atau fallback ke LookAndFeel default
+        }
+
         initComponents();
+
+        tUser.putClientProperty("JTextField.placeholderText", "Masukkan username");
+        pPass.putClientProperty("JTextField.placeholderText", "Masukkan password");
+
+        bLogin.setBackground(new Color(231, 239, 199));
+        bLogin.setForeground(new Color(59,59,26));
+        bLogin.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+        Color originalColor = bLogin.getBackground();
+        Color hoverColor = new Color(112, 154, 126);
+
+        bLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bLogin.setBackground(hoverColor);
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bLogin.setBackground(originalColor);
+            }
+        });
+
+        bDaftar.setBackground(new Color(138, 120, 78));
+        bDaftar.setForeground(new Color(231, 239, 199));
+        bDaftar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+        bDaftar.putClientProperty("JButton.buttonType", "default");
+        bDaftar.putClientProperty("JButton.focusedBackground", new Color(132, 174, 146));
+        bDaftar.putClientProperty("JButton.hoverBackground", new Color(112, 154, 126));
+        bDaftar.putClientProperty("JButton.pressedBackground", new Color(92, 134, 106));
     }
 
     /**
@@ -32,16 +73,17 @@ public class Login extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tUser = new javax.swing.JTextField();
         bLogin = new javax.swing.JButton();
-        bRegist = new javax.swing.JButton();
+        bDaftar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        pPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login - Peminjaman Ruangan");
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(231, 239, 199));
@@ -100,11 +142,16 @@ public class Login extends javax.swing.JFrame {
         bLogin.setForeground(new java.awt.Color(138, 120, 78));
         bLogin.setText("Login");
         bLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bLoginActionPerformed(evt);
+            }
+        });
 
-        bRegist.setBackground(new java.awt.Color(138, 120, 78));
-        bRegist.setForeground(new java.awt.Color(231, 239, 199));
-        bRegist.setText("Belum memiliki akun? Daftar Sekaranng");
-        bRegist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bDaftar.setBackground(new java.awt.Color(138, 120, 78));
+        bDaftar.setForeground(new java.awt.Color(231, 239, 199));
+        bDaftar.setText("Belum memiliki akun? Daftar Sekaranng");
+        bDaftar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Peminjaman Ruangan");
@@ -149,13 +196,13 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField1)
+                            .addComponent(tUser)
                             .addComponent(jLabel3)
                             .addComponent(bLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bRegist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(bDaftar, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pPass))))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -168,24 +215,28 @@ public class Login extends javax.swing.JFrame {
                 .addGap(86, 86, 86)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(tUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pPass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(bLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
-                .addComponent(bRegist, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addComponent(bDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,8 +274,8 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bDaftar;
     private javax.swing.JButton bLogin;
-    private javax.swing.JButton bRegist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -235,7 +286,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField pPass;
+    private javax.swing.JTextField tUser;
     // End of variables declaration//GEN-END:variables
 }

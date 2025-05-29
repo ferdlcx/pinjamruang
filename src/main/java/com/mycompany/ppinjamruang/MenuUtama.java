@@ -4,6 +4,19 @@
  */
 package com.mycompany.ppinjamruang;
 
+import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Image;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 import javax.swing.JFrame;
 
 /**
@@ -16,13 +29,42 @@ public class MenuUtama extends javax.swing.JFrame {
      * Creates new form Dashboard
      */
     public MenuUtama() {
+
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("TextComponent.arc", 10);
+            UIManager.put("Component.focusWidth", 1);
+//            UIManager.put("Button.arc", 999);
+
+        } catch (UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace(); // Bisa juga log atau fallback ke LookAndFeel default
+        }
+
         initComponents();
 
-    
+        // 1. Pastikan JPanel ini opaque agar background-nya digambar
+        pDash.setOpaque(true);
+        pDash.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15)); // Atas, Kiri, Bawah, Kanan
+        pDash.putClientProperty(FlatClientProperties.STYLE, "arc: 15");
+
+        pDash.putClientProperty("JComponent.arc", 15);
+        pDash.putClientProperty("JComponent.rounding", 15);
+
+        pDash.setPreferredSize(new Dimension(180, 40)); // contoh ukuran tetap
+        bDash.setPreferredSize(new Dimension(74, 20));
+        bDash.setOpaque(false);
+        pDash.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10)); // atas, kiri, bawah, kanan
+        bDash.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0)); // atau sesuai kebutuhan
+
+        //image
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/home.png"));
+        Image img = icon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        lIconD.setIcon(new ImageIcon(img));
+
     }
 
     private void showDashboard() {
-       
+
     }
 
     /**
@@ -37,13 +79,14 @@ public class MenuUtama extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         pnKiri = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        pDash = new javax.swing.JPanel();
+        pLine = new javax.swing.JPanel();
+        lIconD = new javax.swing.JLabel();
+        bDash = new javax.swing.JLabel();
         pnKanan = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         pMain = new javax.swing.JPanel();
+        pMain1 = new javax.swing.JPanel();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -55,44 +98,71 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("PinjamRuangSYS");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Dashboard");
+        pDash.setBackground(new java.awt.Color(174, 200, 164));
+        pDash.setPreferredSize(new java.awt.Dimension(150, 30));
+        pDash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pDashMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                pDashMouseEntered(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        pLine.setBackground(new java.awt.Color(174, 200, 164));
+        pLine.setPreferredSize(new java.awt.Dimension(5, 28));
+
+        javax.swing.GroupLayout pLineLayout = new javax.swing.GroupLayout(pLine);
+        pLine.setLayout(pLineLayout);
+        pLineLayout.setHorizontalGroup(
+            pLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        pLineLayout.setVerticalGroup(
+            pLineLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 28, Short.MAX_VALUE)
         );
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("DataRuangan");
+        lIconD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/home.png"))); // NOI18N
+        lIconD.setPreferredSize(new java.awt.Dimension(20, 20));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        bDash.setBackground(new java.awt.Color(174, 200, 164));
+        bDash.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bDash.setText("Dashboard");
+        bDash.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bDashMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bDashMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bDashMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pDashLayout = new javax.swing.GroupLayout(pDash);
+        pDash.setLayout(pDashLayout);
+        pDashLayout.setHorizontalGroup(
+            pDashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDashLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(pLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(lIconD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(bDash, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(8, Short.MAX_VALUE))
+        pDashLayout.setVerticalGroup(
+            pDashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDashLayout.createSequentialGroup()
+                .addGap(3, 3, 3)
+                .addGroup(pDashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(bDash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lIconD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnKiriLayout = new javax.swing.GroupLayout(pnKiri);
@@ -100,26 +170,20 @@ public class MenuUtama extends javax.swing.JFrame {
         pnKiriLayout.setHorizontalGroup(
             pnKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnKiriLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
+                .addGap(14, 14, 14)
+                .addGroup(pnKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(pDash, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(pnKiriLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
         );
         pnKiriLayout.setVerticalGroup(
             pnKiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnKiriLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(85, 85, 85)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(pDash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(465, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnKiri, java.awt.BorderLayout.LINE_START);
@@ -145,15 +209,18 @@ public class MenuUtama extends javax.swing.JFrame {
 
         pMain.setBackground(new java.awt.Color(231, 239, 199));
 
+        pMain1.setBackground(new java.awt.Color(231, 239, 199));
+        pMain1.setLayout(new java.awt.BorderLayout());
+
         javax.swing.GroupLayout pMainLayout = new javax.swing.GroupLayout(pMain);
         pMain.setLayout(pMainLayout);
         pMainLayout.setHorizontalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addComponent(pMain1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pMainLayout.setVerticalGroup(
             pMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addComponent(pMain1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pnKanan.add(pMain, java.awt.BorderLayout.CENTER);
@@ -162,6 +229,39 @@ public class MenuUtama extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void pDashMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pDashMouseEntered
+
+    private void bDashMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bDashMouseEntered
+        // TODO add your handling code here:
+        pDash.setBackground(new Color(231, 239, 199));
+        pLine.setBackground(new Color(138, 120, 78));
+
+    }//GEN-LAST:event_bDashMouseEntered
+
+    private void bDashMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bDashMouseExited
+        // TODO add your handling code here:
+        pDash.setBackground(new Color(174, 200, 164));
+        pLine.setBackground(new Color(174, 200, 164));
+
+    }//GEN-LAST:event_bDashMouseExited
+
+    private void pDashMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDashMouseClicked
+
+    }//GEN-LAST:event_pDashMouseClicked
+
+    private void bDashMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bDashMouseClicked
+        // TODO add your handling code here:
+        pDash.setBackground(new Color(231, 239, 199));
+        pLine.setBackground(new Color(138, 120, 78));
+
+        pMain1.removeAll();
+        pMain1.add(new DashboardPanel());
+        pMain1.repaint();
+        pMain1.revalidate();
+    }//GEN-LAST:event_bDashMouseClicked
 
     /**
      * @param args the command line arguments
@@ -200,14 +300,19 @@ public class MenuUtama extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bDash;
+    private javax.swing.JPanel c203;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JLabel lIconD;
+    public javax.swing.JPanel pDash;
+    private javax.swing.JPanel pLine;
     private javax.swing.JPanel pMain;
+    private javax.swing.JPanel pMain1;
     private javax.swing.JPanel pnKanan;
     private javax.swing.JPanel pnKiri;
     // End of variables declaration//GEN-END:variables

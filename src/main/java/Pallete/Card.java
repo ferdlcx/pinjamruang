@@ -20,18 +20,6 @@ public class Card extends javax.swing.JPanel {
 
     }
 
-    public void setNama(String nama) {
-        jLabel1.setText(nama);
-    }
-
-    public void setStatus(String status) {
-        lStatus.setText(status);
-    }
-
-    public JPanel getPanelIcon() {
-        return pCenter;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,7 +41,7 @@ public class Card extends javax.swing.JPanel {
         lStatus = new javax.swing.JLabel();
         pCenter = new javax.swing.JPanel();
 
-        setPreferredSize(new java.awt.Dimension(170, 200));
+        setPreferredSize(new java.awt.Dimension(200, 200));
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
@@ -69,7 +57,7 @@ public class Card extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jLabel1)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +98,7 @@ public class Card extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(lStatus)
                 .addContainerGap())
         );
@@ -129,7 +117,7 @@ public class Card extends javax.swing.JPanel {
         pCenter.setLayout(pCenterLayout);
         pCenterLayout.setHorizontalGroup(
             pCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+            .addGap(0, 173, Short.MAX_VALUE)
         );
         pCenterLayout.setVerticalGroup(
             pCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

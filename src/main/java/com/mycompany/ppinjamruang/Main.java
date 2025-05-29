@@ -1,30 +1,24 @@
+
 import com.formdev.flatlaf.FlatLightLaf;
-import com.mycompany.ppinjamruang.Login;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-/*package com.mycompany.ppinjamruang;*/
-
-/**
- *
- * @author dyana
- */
-
-
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class Main {
-    public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        // Tampilkan Login Form dulu
-        new Login().setVisible(true);
+    public static void main(String[] args) throws UnsupportedLookAndFeelException {
+        // Gunakan setup() untuk menghindari masalah exception
+        FlatLightLaf.setup();
+
+        SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatLightLaf());
+            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+                ex.printStackTrace();
+            }
+
+        });
     }
 }
-

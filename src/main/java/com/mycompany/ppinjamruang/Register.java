@@ -1,8 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.ppinjamruang;
+
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
+import java.awt.Font;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -14,7 +18,34 @@ public class Register extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Register() {
-        initComponents();
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("TextComponent.arc", 10);
+            UIManager.put("Component.focusWidth", 1);
+            UIManager.put("Button.arc", 999);
+        } catch (UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace();
+        }
+
+        initComponents();  // inisialisasi UI setelah setting L&F dan UIManager
+
+        // properti UI lanjutan dan custom color, font bisa tetap di sini
+        tUser.putClientProperty("JTextField.placeholderText", "Masukkan username");
+        pPass.putClientProperty("JTextField.placeholderText", "Masukkan password");
+        pPassC.putClientProperty("JTextFIeld.placeholderText", "Konfirmasi password");
+
+        bLogin.setBackground(new Color(138, 120, 78));
+        bLogin.setForeground(new Color(231, 239, 199));
+        bLogin.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+        bDaftar.setBackground(new Color(231, 239, 199));
+        bDaftar.setForeground(new Color(59, 59, 26));
+        bDaftar.setFont(new Font("Segoe UI", Font.BOLD, 14));
+
+        bDaftar.putClientProperty("JButton.buttonType", "default");
+        bDaftar.putClientProperty("JButton.focusedBackground", new Color(132, 174, 146));
+        bDaftar.putClientProperty("JButton.hoverBackground", new Color(112, 154, 126));
+        bDaftar.putClientProperty("JButton.pressedBackground", new Color(92, 134, 106));
     }
 
     /**
@@ -32,15 +63,14 @@ public class Register extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        bRegist = new javax.swing.JButton();
+        tUser = new javax.swing.JTextField();
+        bDaftar = new javax.swing.JButton();
         bLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        pPass = new javax.swing.JPasswordField();
+        pPassC = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,10 +126,15 @@ public class Register extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(59, 59, 26));
         jLabel3.setText("Password");
 
-        bRegist.setBackground(new java.awt.Color(231, 239, 199));
-        bRegist.setForeground(new java.awt.Color(138, 120, 78));
-        bRegist.setText("Create Account");
-        bRegist.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bDaftar.setBackground(new java.awt.Color(231, 239, 199));
+        bDaftar.setForeground(new java.awt.Color(138, 120, 78));
+        bDaftar.setText("Create Account");
+        bDaftar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bDaftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bDaftarActionPerformed(evt);
+            }
+        });
 
         bLogin.setBackground(new java.awt.Color(138, 120, 78));
         bLogin.setForeground(new java.awt.Color(231, 239, 199));
@@ -111,19 +146,6 @@ public class Register extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setText("STIKOM Yos Sudarso");
-
-        jPanel4.setBackground(new java.awt.Color(174, 200, 164));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 178, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
-        );
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(59, 59, 26));
@@ -145,17 +167,15 @@ public class Register extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
-                                .addComponent(jTextField1)
+                                .addComponent(tUser)
                                 .addComponent(jLabel3)
-                                .addComponent(bRegist, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(bDaftar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                .addComponent(pPass))
+                            .addComponent(pPassC))))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -168,20 +188,18 @@ public class Register extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tUser, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(pPass, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pPassC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
+                .addComponent(bDaftar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bRegist, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
                 .addComponent(bLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42))
         );
@@ -190,6 +208,10 @@ public class Register extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bDaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDaftarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bDaftarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,8 +250,8 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bDaftar;
     private javax.swing.JButton bLogin;
-    private javax.swing.JButton bRegist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -239,9 +261,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPasswordField pPass;
+    private javax.swing.JPasswordField pPassC;
+    private javax.swing.JTextField tUser;
     // End of variables declaration//GEN-END:variables
 }
