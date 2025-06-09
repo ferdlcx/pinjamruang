@@ -45,31 +45,34 @@ public class MenuUtama extends javax.swing.JFrame {
 
         pDash.setOpaque(true);
         pDash.putClientProperty(FlatClientProperties.STYLE, "arc: 15");
+
         pDash.putClientProperty("JComponent.arc", 15);
         pDash.putClientProperty("JComponent.rounding", 15);
-        pDash.setPreferredSize(new Dimension(180, 40));
 
+        pDash.setPreferredSize(new Dimension(180, 40));
         bDash.setPreferredSize(new Dimension(74, 20));
         bDash.setOpaque(false);
-        bDash.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
 
         pData.setOpaque(true);
+        bData.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
         pData.putClientProperty(FlatClientProperties.STYLE, "arc: 15");
+
         pData.putClientProperty("JComponent.arc", 15);
         pData.putClientProperty("JComponent.rounding", 15);
-        pData.setPreferredSize(new Dimension(180, 40));
 
+        pData.setPreferredSize(new Dimension(180, 40)); // contoh ukuran tetap
         bData.setPreferredSize(new Dimension(74, 20));
         bData.setOpaque(false);
-        bData.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 0));
 
+        //image
+        ImageIcon icon = new ImageIcon(getClass().getResource("/img/home.png"));
+        Image img = icon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        lIconD.setIcon(new ImageIcon(img));
+
+        //image
         ImageIcon icon1 = new ImageIcon(getClass().getResource("/img/home.png"));
-        Image img1 = icon1.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-        lIconD.setIcon(new ImageIcon(img1));
-
-        ImageIcon icon2 = new ImageIcon(getClass().getResource("/img/build.png"));
-        Image img2 = icon2.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-        iconData.setIcon(new ImageIcon(img2));
+        Image img1 = icon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        iconData.setIcon(new ImageIcon(img));
 
     }
 
@@ -310,11 +313,11 @@ public class MenuUtama extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(topLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pDash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pnKanan.add(top, java.awt.BorderLayout.PAGE_START);
@@ -377,14 +380,28 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void bDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bDataMouseClicked
         // TODO add your handling code here:
+
+        pData.setBackground(new Color(231, 239, 199));
+        pLineD.setBackground(new Color(138, 120, 78));
+
+        pMain1.removeAll();
+        pMain1.add(new DashboardPanel(this));
+        pMain1.repaint();
+        pMain1.revalidate();
     }//GEN-LAST:event_bDataMouseClicked
 
     private void bDataMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bDataMouseEntered
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        pData.setBackground(new Color(231, 239, 199));
+        pLineD.setBackground(new Color(138, 120, 78));
     }//GEN-LAST:event_bDataMouseEntered
 
     private void bDataMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bDataMouseExited
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        pData.setBackground(new Color(174, 200, 164));
+        pLineD.setBackground(new Color(174, 200, 164));
     }//GEN-LAST:event_bDataMouseExited
 
     private void pDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pDataMouseClicked
