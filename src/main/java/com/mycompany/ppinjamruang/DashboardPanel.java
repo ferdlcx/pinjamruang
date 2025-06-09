@@ -16,13 +16,19 @@ import javax.swing.JPanel;
  * @author dyana
  */
 public class DashboardPanel extends JPanel {
-   
 
-    public DashboardPanel() {
-         initComponents();
+    public DashboardPanel(MenuUtama parent) {
+        this.parent = parent;
+        initComponents();
+
+        bPinjam01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPinjam01ActionPerformed(evt);
+            }
+        });
     }
 
-
+    private final MenuUtama parent;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,14 +45,14 @@ public class DashboardPanel extends JPanel {
         room1 = new javax.swing.JPanel();
         lRoomImg = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        LabelRuangan = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         bPinjam01 = new javax.swing.JButton();
         room4 = new javax.swing.JPanel();
         lRoomImg3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        LabelRuangan02 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         bPinjam02 = new javax.swing.JButton();
@@ -60,11 +66,21 @@ public class DashboardPanel extends JPanel {
 
         jLabel45.setText("jLabel45");
 
+        setBackground(new java.awt.Color(231, 239, 199));
+        setPreferredSize(new java.awt.Dimension(800, 470));
         setLayout(new java.awt.BorderLayout());
 
+        jScrollPane1.setBackground(new java.awt.Color(231, 239, 199));
+        jScrollPane1.setBorder(null);
+
         jPanel1.setBackground(new java.awt.Color(231, 239, 199));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setMaximumSize(new java.awt.Dimension(800, 540));
+        jPanel1.setMinimumSize(new java.awt.Dimension(800, 470));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 470));
         jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 20));
 
+        room1.setPreferredSize(new java.awt.Dimension(225, 300));
         room1.setLayout(new java.awt.BorderLayout());
 
         lRoomImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/room1.jpg"))); // NOI18N
@@ -73,10 +89,10 @@ public class DashboardPanel extends JPanel {
         lRoomImg.setPreferredSize(new java.awt.Dimension(200, 300));
         room1.add(lRoomImg, java.awt.BorderLayout.CENTER);
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(174, 200, 164));
         jPanel2.setPreferredSize(new java.awt.Dimension(250, 30));
 
-        jLabel1.setText("Room 201");
+        LabelRuangan.setText("Room 201");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -84,20 +100,20 @@ public class DashboardPanel extends JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(88, 88, 88)
-                .addComponent(jLabel1)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addComponent(LabelRuangan)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(LabelRuangan)
                 .addContainerGap())
         );
 
         room1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
-        jPanel4.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel4.setPreferredSize(new java.awt.Dimension(250, 25));
         jPanel4.setLayout(new java.awt.GridLayout(1, 2));
 
         jButton1.setText("Detail");
@@ -115,6 +131,7 @@ public class DashboardPanel extends JPanel {
 
         jPanel1.add(room1);
 
+        room4.setPreferredSize(new java.awt.Dimension(225, 300));
         room4.setLayout(new java.awt.BorderLayout());
 
         lRoomImg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/kelas2.jpg"))); // NOI18N
@@ -123,43 +140,49 @@ public class DashboardPanel extends JPanel {
         lRoomImg3.setPreferredSize(new java.awt.Dimension(200, 300));
         room4.add(lRoomImg3, java.awt.BorderLayout.CENTER);
 
-        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setBackground(new java.awt.Color(174, 200, 164));
         jPanel3.setPreferredSize(new java.awt.Dimension(250, 30));
 
-        jLabel4.setText("Room 202");
+        LabelRuangan02.setText("Room 202");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(92, 92, 92))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(LabelRuangan02)
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(8, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(LabelRuangan02)
                 .addContainerGap())
         );
 
         room4.add(jPanel3, java.awt.BorderLayout.PAGE_START);
 
-        jPanel5.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel5.setPreferredSize(new java.awt.Dimension(250, 25));
         jPanel5.setLayout(new java.awt.GridLayout(1, 2));
 
         jButton7.setText("Detail");
         jPanel5.add(jButton7);
 
         bPinjam02.setText("Pinjam");
+        bPinjam02.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPinjam02ActionPerformed(evt);
+            }
+        });
         jPanel5.add(bPinjam02);
 
         room4.add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
         jPanel1.add(room4);
 
+        room5.setPreferredSize(new java.awt.Dimension(225, 300));
         room5.setLayout(new java.awt.BorderLayout());
 
         lRoomImg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/room1.jpg"))); // NOI18N
@@ -168,7 +191,7 @@ public class DashboardPanel extends JPanel {
         lRoomImg4.setPreferredSize(new java.awt.Dimension(200, 300));
         room5.add(lRoomImg4, java.awt.BorderLayout.CENTER);
 
-        jPanel8.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel8.setBackground(new java.awt.Color(174, 200, 164));
         jPanel8.setPreferredSize(new java.awt.Dimension(250, 30));
 
         jLabel5.setText("Room 203");
@@ -178,9 +201,9 @@ public class DashboardPanel extends JPanel {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+                .addContainerGap(86, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addGap(97, 97, 97))
+                .addGap(85, 85, 85))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,13 +215,18 @@ public class DashboardPanel extends JPanel {
 
         room5.add(jPanel8, java.awt.BorderLayout.PAGE_START);
 
-        jPanel11.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel11.setPreferredSize(new java.awt.Dimension(225, 25));
         jPanel11.setLayout(new java.awt.GridLayout(1, 2));
 
         jButton9.setText("Detail");
         jPanel11.add(jButton9);
 
         bPinjam03.setText("Pinjam");
+        bPinjam03.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPinjam03ActionPerformed(evt);
+            }
+        });
         jPanel11.add(bPinjam03);
 
         room5.add(jPanel11, java.awt.BorderLayout.PAGE_END);
@@ -211,20 +239,35 @@ public class DashboardPanel extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bPinjam01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPinjam01ActionPerformed
-
-
+        FormPinjam formPinjam = new FormPinjam();
+        formPinjam.setRuangId("R201"); // contoh data, bisa diganti sesuai tombol
+        parent.setMainPanel(formPinjam);
     }//GEN-LAST:event_bPinjam01ActionPerformed
+
+    private void bPinjam02ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPinjam02ActionPerformed
+        // TODO add your handling code here:
+        FormPinjam formPinjam = new FormPinjam();
+        formPinjam.setRuangId("R202"); // contoh data, bisa diganti sesuai tombol
+        parent.setMainPanel(formPinjam);
+    }//GEN-LAST:event_bPinjam02ActionPerformed
+
+    private void bPinjam03ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPinjam03ActionPerformed
+        // TODO add your handling code here:
+         FormPinjam formPinjam = new FormPinjam();
+        formPinjam.setRuangId("R203"); // contoh data, bisa diganti sesuai tombol
+        parent.setMainPanel(formPinjam);
+    }//GEN-LAST:event_bPinjam03ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelRuangan;
+    private javax.swing.JLabel LabelRuangan02;
     private javax.swing.JButton bPinjam01;
     private javax.swing.JButton bPinjam02;
     private javax.swing.JButton bPinjam03;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
