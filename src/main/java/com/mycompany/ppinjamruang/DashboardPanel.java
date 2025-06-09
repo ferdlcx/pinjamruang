@@ -4,26 +4,25 @@
  */
 package com.mycompany.ppinjamruang;
 
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 /**
  *
  * @author dyana
  */
-public class DashboardPanel extends javax.swing.JPanel {
+public class DashboardPanel extends JPanel {
+   
 
-    /**
-     * Creates new form DashboardPanel
-     */
     public DashboardPanel() {
-        initComponents();
-        
-        roomCard1.setNamaRuangan("Lab Komputer A");
-    roomCard2.setNamaRuangan("Ruang Rapat");
-    roomCard3.setNamaRuangan("Lab Bahasa");
-    roomCard4.setNamaRuangan("Ruang Meeting");
-    roomCard5.setNamaRuangan("Studio Podcast");
-    roomCard6.setNamaRuangan("Ruang Rapat VIP");
-
+         initComponents();
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,113 +36,210 @@ public class DashboardPanel extends javax.swing.JPanel {
         jLabel45 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        roomCard1 = new Pallete.RoomCard();
-        roomCard5 = new Pallete.RoomCard();
-        roomCard3 = new Pallete.RoomCard();
-        roomCard2 = new Pallete.RoomCard();
-        roomCard4 = new Pallete.RoomCard();
-        roomCard6 = new Pallete.RoomCard();
+        room1 = new javax.swing.JPanel();
+        lRoomImg = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        bPinjam01 = new javax.swing.JButton();
+        room4 = new javax.swing.JPanel();
+        lRoomImg3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        bPinjam02 = new javax.swing.JButton();
+        room5 = new javax.swing.JPanel();
+        lRoomImg4 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
+        bPinjam03 = new javax.swing.JButton();
 
         jLabel45.setText("jLabel45");
 
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(231, 239, 199));
-        jPanel1.setLayout(new java.awt.GridLayout(2, 0));
-        jPanel1.add(roomCard1);
-        jPanel1.add(roomCard5);
-        jPanel1.add(roomCard3);
-        jPanel1.add(roomCard2);
-        jPanel1.add(roomCard4);
-        jPanel1.add(roomCard6);
+        jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 20, 20));
+
+        room1.setLayout(new java.awt.BorderLayout());
+
+        lRoomImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/room1.jpg"))); // NOI18N
+        lRoomImg.setMaximumSize(new java.awt.Dimension(200, 300));
+        lRoomImg.setMinimumSize(new java.awt.Dimension(400, 400));
+        lRoomImg.setPreferredSize(new java.awt.Dimension(200, 300));
+        room1.add(lRoomImg, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setPreferredSize(new java.awt.Dimension(250, 30));
+
+        jLabel1.setText("Room 201");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(jLabel1)
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
+        );
+
+        room1.add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel4.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel4.setLayout(new java.awt.GridLayout(1, 2));
+
+        jButton1.setText("Detail");
+        jPanel4.add(jButton1);
+
+        bPinjam01.setText("Pinjam");
+        bPinjam01.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPinjam01ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(bPinjam01);
+
+        room1.add(jPanel4, java.awt.BorderLayout.PAGE_END);
+
+        jPanel1.add(room1);
+
+        room4.setLayout(new java.awt.BorderLayout());
+
+        lRoomImg3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/kelas2.jpg"))); // NOI18N
+        lRoomImg3.setMaximumSize(new java.awt.Dimension(200, 300));
+        lRoomImg3.setMinimumSize(new java.awt.Dimension(400, 400));
+        lRoomImg3.setPreferredSize(new java.awt.Dimension(200, 300));
+        room4.add(lRoomImg3, java.awt.BorderLayout.CENTER);
+
+        jPanel3.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel3.setPreferredSize(new java.awt.Dimension(250, 30));
+
+        jLabel4.setText("Room 202");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(104, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(92, 92, 92))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addContainerGap())
+        );
+
+        room4.add(jPanel3, java.awt.BorderLayout.PAGE_START);
+
+        jPanel5.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel5.setLayout(new java.awt.GridLayout(1, 2));
+
+        jButton7.setText("Detail");
+        jPanel5.add(jButton7);
+
+        bPinjam02.setText("Pinjam");
+        jPanel5.add(bPinjam02);
+
+        room4.add(jPanel5, java.awt.BorderLayout.PAGE_END);
+
+        jPanel1.add(room4);
+
+        room5.setLayout(new java.awt.BorderLayout());
+
+        lRoomImg4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/room1.jpg"))); // NOI18N
+        lRoomImg4.setMaximumSize(new java.awt.Dimension(200, 300));
+        lRoomImg4.setMinimumSize(new java.awt.Dimension(400, 400));
+        lRoomImg4.setPreferredSize(new java.awt.Dimension(200, 300));
+        room5.add(lRoomImg4, java.awt.BorderLayout.CENTER);
+
+        jPanel8.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel8.setPreferredSize(new java.awt.Dimension(250, 30));
+
+        jLabel5.setText("Room 203");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(99, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(97, 97, 97))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(8, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addContainerGap())
+        );
+
+        room5.add(jPanel8, java.awt.BorderLayout.PAGE_START);
+
+        jPanel11.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel11.setLayout(new java.awt.GridLayout(1, 2));
+
+        jButton9.setText("Detail");
+        jPanel11.add(jButton9);
+
+        bPinjam03.setText("Pinjam");
+        jPanel11.add(bPinjam03);
+
+        room5.add(jPanel11, java.awt.BorderLayout.PAGE_END);
+
+        jPanel1.add(room5);
 
         jScrollPane1.setViewportView(jPanel1);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bPinjam01ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPinjam01ActionPerformed
+
+
+    }//GEN-LAST:event_bPinjam01ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel c201;
-    private javax.swing.JPanel c202;
-    private javax.swing.JPanel c203;
-    private javax.swing.JPanel c204;
-    private javax.swing.JPanel c205;
-    private javax.swing.JPanel c206;
-    private javax.swing.JPanel c207;
-    private javax.swing.JPanel c208;
-    private javax.swing.JPanel c209;
-    private javax.swing.JPanel c210;
-    private javax.swing.JPanel c211;
-    private javax.swing.JPanel c212;
-    private javax.swing.JPanel c213;
-    private javax.swing.JPanel c214;
-    private javax.swing.JPanel c215;
-    private javax.swing.JPanel c216;
-    private javax.swing.JPanel c217;
-    private javax.swing.JPanel c218;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
+    private javax.swing.JButton bPinjam01;
+    private javax.swing.JButton bPinjam02;
+    private javax.swing.JButton bPinjam03;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
-    private javax.swing.JPanel jPanel30;
-    private javax.swing.JPanel jPanel31;
-    private javax.swing.JPanel jPanel32;
-    private javax.swing.JPanel jPanel33;
-    private javax.swing.JPanel jPanel34;
-    private javax.swing.JPanel jPanel35;
-    private javax.swing.JPanel jPanel36;
-    private javax.swing.JPanel jPanel37;
-    private javax.swing.JPanel jPanel38;
-    private javax.swing.JPanel jPanel39;
-    private javax.swing.JPanel jPanel40;
-    private javax.swing.JPanel jPanel41;
-    private javax.swing.JPanel jPanel42;
-    private javax.swing.JPanel jPanel43;
-    private javax.swing.JPanel jPanel44;
-    private javax.swing.JPanel jPanel45;
-    private javax.swing.JPanel jPanel46;
-    private javax.swing.JPanel jPanel47;
-    private javax.swing.JPanel jPanel48;
-    private javax.swing.JPanel jPanel49;
-    private javax.swing.JPanel jPanel50;
-    private javax.swing.JPanel jPanel51;
-    private javax.swing.JPanel jPanel52;
-    private javax.swing.JPanel jPanel53;
-    private javax.swing.JPanel jPanel54;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private Pallete.RoomCard roomCard1;
-    private Pallete.RoomCard roomCard2;
-    private Pallete.RoomCard roomCard3;
-    private Pallete.RoomCard roomCard4;
-    private Pallete.RoomCard roomCard5;
-    private Pallete.RoomCard roomCard6;
+    private javax.swing.JLabel lRoomImg;
+    private javax.swing.JLabel lRoomImg3;
+    private javax.swing.JLabel lRoomImg4;
+    private javax.swing.JPanel room1;
+    private javax.swing.JPanel room4;
+    private javax.swing.JPanel room5;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -56,6 +57,8 @@ public class Login extends javax.swing.JFrame {
         bDaftar.putClientProperty("JButton.focusedBackground", new Color(132, 174, 146));
         bDaftar.putClientProperty("JButton.hoverBackground", new Color(112, 154, 126));
         bDaftar.putClientProperty("JButton.pressedBackground", new Color(92, 134, 106));
+        
+       
     }
 
     /**
@@ -236,6 +239,21 @@ public class Login extends javax.swing.JFrame {
 
     private void bLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLoginActionPerformed
         // TODO add your handling code here:
+         
+         String username = tUser.getText();
+        String password = new String(pPass.getPassword());
+
+        boolean Persyaratan = username.equals("admin") && password.equals("123");
+
+        if (Persyaratan == true) {
+            JOptionPane.showMessageDialog(null, "Berhasil login\nHalo " + username, "Login", JOptionPane.INFORMATION_MESSAGE);
+
+                MenuUtama halaman = new MenuUtama();
+                halaman.setVisible(true);
+                this.dispose();
+        } else {
+            JOptionPane.showConfirmDialog(null, "Login belum berhasil", "Login", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_bLoginActionPerformed
 
     /**

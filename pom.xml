@@ -30,6 +30,16 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>cared</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>unknown.binary</groupId>
+            <artifactId>template-1.0-SNAPSHOT</artifactId>
+            <version>SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
